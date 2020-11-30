@@ -1,0 +1,28 @@
+.App {
+    font-family: Helvetica, sans-serif;
+    margin-left: 10px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-areas: "sidebar header" "sidebar main";
+    grid-template-columns: 1fr 2.3fr;
+    grid-template-rows: 120px 1fr;
+    min-height: 100vh;
+}
+
+.App__header {
+    grid-area: header;
+    padding-left: 30px;
+    padding-top: 32px;
+  }
+
+  .App__main {
+    grid-area: main;
+    height: calc(100vh - 120px);
+    overflow: auto;
+  }
+  
+ .header-title {
+    font-size: 60px;
+    text-decoration: none;
+    color: #52D1DC;
+}
