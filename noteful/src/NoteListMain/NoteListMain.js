@@ -1,23 +1,37 @@
-import React from 'react';
+import { React, Component } from 'react';
+import NotefulContext from '../NotefulContext'
+import { getNotesForFolder } from '../notes-helpers'
 import Note from '../Note/Note'
 import './NoteListMain.css'
 
-function NoteListMain(props) {
-    return (
-        <section className='NoteListMain'>
+class NoteListMain extends Component {
+    static defaultProps = {
+        match: {
+          params: {}
+        }
+      }
+    static contextType = NotefulContext
+
+    render() {
+        const { folderId } = this.props.match.params
+        const { notes=[] } = this.context
+        const notesForFolder = getNotesForFolder(notes, folderId)
+        return (
+          <section className='NoteListMain'>
             <ul>
-            {props.notes.map(note =>
+              {notesForFolder.map(note =>
                 <li key={note.id}>
-                <Note
+                  <Note
                     id={note.id}
                     name={note.name}
                     modified={note.modified}
-                />
+                  />
                 </li>
-            )}
+              )}
             </ul>
-        </section>
-    )
+            </section>
+        )
+    }
 }
 
 export default NoteListMain;
