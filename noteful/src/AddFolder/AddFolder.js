@@ -84,9 +84,7 @@ updateFolderName = (name) => {
 };
 
 AddFolder.propTypes = {
-  context: PropTypes.shape({
-    folders:PropTypes.arrayOf({}),
-    notes:PropTypes.arrayOf({}),
-    deleteNote: PropTypes.func
+  folder: PropTypes.shape({
+    name: PropTypes.string.isRequired,
   })
 };

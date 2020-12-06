@@ -93,7 +93,6 @@ export default class AddNote extends Component {
               Folder
             </label>
             <select id='note-folder-select' name='note-folder-id' onChange={(e) => this.updateFolderId(e.target.value)} >
-              <option value=' '>...</option>
               {folders.map(folder =>
                 <option key={folder.id} value={folder.id}>
                   {folder.name}
@@ -114,9 +113,10 @@ export default class AddNote extends Component {
 };
 
 AddNote.propTypes = {
-  context: PropTypes.shape({
-    folders:PropTypes.arrayOf({}),
-    notes:PropTypes.arrayOf({}),
-    deleteNote: PropTypes.func
+  newNote: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    folder: PropTypes.string.isRequired,
+    folderId: PropTypes.string.isRequired,
   })
 };

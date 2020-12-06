@@ -8,7 +8,8 @@ import NotePageMain from './NotePageMain/NotePageMain';
 import AddFolder from './AddFolder/AddFolder';
 import AddNote from './AddNote/AddNote';
 import AddNoteError from './AddNote/AddNoteError';
-import AddFolderError from './AddFolder/AddFolderError'
+import AddFolderError from './AddFolder/AddFolderError';
+import PropTypes from 'prop-types';
 import './App.css';
 
 class App extends Component { 
@@ -182,3 +183,12 @@ class App extends Component {
 }
 
 export default App;
+
+App.propTypes = {
+  context: PropTypes.shape({
+    folders:PropTypes.arrayOf({}),
+    notes:PropTypes.arrayOf({}),
+    addNote: PropTypes.func,
+    deleteNote: PropTypes.func,
+  })
+};

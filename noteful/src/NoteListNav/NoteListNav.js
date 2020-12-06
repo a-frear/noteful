@@ -50,6 +50,6 @@ NotesListNav.propTypes = {
   context: PropTypes.shape({
     folders:PropTypes.arrayOf({}),
     notes:PropTypes.arrayOf({}),
-    deleteNote: PropTypes.func
+    addNote: PropTypes.func,
   })
 }
