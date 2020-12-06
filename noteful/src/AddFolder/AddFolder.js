@@ -84,7 +84,5 @@ updateFolderName = (name) => {
 };
 
 AddFolder.propTypes = {
-  folder: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  })
+    //this.prop.history
 };

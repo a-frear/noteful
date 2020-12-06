@@ -183,12 +183,3 @@ class App extends Component {
 }
 
 export default App;
-
-App.propTypes = {
-  context: PropTypes.shape({
-    folders:PropTypes.arrayOf({}),
-    notes:PropTypes.arrayOf({}),
-    addNote: PropTypes.func,
-    deleteNote: PropTypes.func,
-  })
-};

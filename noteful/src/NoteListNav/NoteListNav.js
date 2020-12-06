@@ -45,11 +45,3 @@ class NotesListNav extends Component {
 }
 
 export default NotesListNav;
-
-NotesListNav.propTypes = {
-  context: PropTypes.shape({
-    folders:PropTypes.arrayOf({}),
-    notes:PropTypes.arrayOf({}),
-    addNote: PropTypes.func,
-  })
-}

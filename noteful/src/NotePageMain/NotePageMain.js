@@ -40,4 +40,6 @@ export default class NotePageMain extends React.Component {
 }
 
 NotePageMain.propTypes = {
+  //this.props.history
+  //this.props.match.params
 }

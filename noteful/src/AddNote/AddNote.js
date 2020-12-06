@@ -113,5 +113,5 @@ export default class AddNote extends Component {
 };
 
 AddNote.propTypes = {
-  //
+  //this.props.history
 };

@@ -46,4 +46,5 @@ class NotePageNav extends Component {
 export default NotePageNav;
 
 NotePageNav.propTypes = {
-}
+  //this.props.history
+};
