@@ -8,8 +8,7 @@ export default class AddNote extends Component {
   state = {
     value: '',
     folderId:'',
-    content: '',
-    touched: false
+    content: ''
   }
 
   static contextType = NotefulContext;
@@ -45,14 +44,14 @@ export default class AddNote extends Component {
 
   updateNoteName = (noteName) => {
     this.setState({
-       value: noteName,
-       touched: true
+       value: noteName
        })
    }
 
    updateFolderId = (id) => {
     this.setState({
-      folderId: id
+      folderId: id,
+      touched: true
       })
   }
   
