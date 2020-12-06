@@ -1,0 +1,19 @@
+.AddFolder, label, input, button {
+    font-family: Helvetica, sans-serif;
+}
+
+.AddFolder {
+    margin: 30px 0px 0px 0px;
+}
+
+label, button {
+    display: block;
+    margin: 10px 5px 10px 0px;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #F9C784;
+    color: black;
+}

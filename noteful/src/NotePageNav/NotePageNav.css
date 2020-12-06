@@ -11,11 +11,13 @@
   }
   .NotePageNav__back-button:hover {
     background-color: #F9C784;
+    color: white;
+    cursor: pointer;
   }
   
   .NotePageNav__folder-name {
     color: #475B5A;
     font-size: 18px;
-    margin-left: 50px;
+    margin-left: 150px;
   }
   

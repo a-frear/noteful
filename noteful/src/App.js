@@ -5,6 +5,10 @@ import NoteListNav from './NoteListNav/NoteListNav';
 import NoteListMain from './NoteListMain/NoteListMain';
 import NotePageNav from './NotePageNav/NotePageNav';
 import NotePageMain from './NotePageMain/NotePageMain';
+import AddFolder from './AddFolder/AddFolder';
+import AddNote from './AddNote/AddNote';
+import AddNoteError from './AddNote/AddNoteError';
+import AddFolderError from './AddFolder/AddFolderError'
 import './App.css';
 
 class App extends Component { 
@@ -65,6 +69,24 @@ class App extends Component {
           notes: this.state.notes.filter(note => note.id !== noteId)
       });
     };
+
+    handleAddFolder = folder => {
+      this.setState({
+        folders: [
+          ...this.state.folders,
+          folder
+        ]
+      })
+    };
+
+    handleAddNote = note => {
+      this.setState({
+        notes: [
+          ...this.state.notes,
+          note
+        ]
+      })
+    };
     
   renderNavRoutes() {
     return (
@@ -117,7 +139,18 @@ class App extends Component {
             path="/note/:noteId"
             component={NotePageMain}
           />
-        
+          <AddFolderError>
+            <Route
+            path='/add-folder'
+            component={AddFolder}
+            />
+          </AddFolderError>
+          <AddNoteError>
+          <Route
+            path='/add-note'
+            component={AddNote}
+          />
+          </AddNoteError>
       </>
     );
   }
@@ -126,6 +159,8 @@ class App extends Component {
     const contextValue = {
       notes: this.state.notes,
       folders: this.state.folders,
+      addFolder: this.handleAddFolder,
+      addNote: this.handleAddNote,
       deleteNote: this.handleDeleteNote,
     }
     return (

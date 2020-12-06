@@ -3,6 +3,7 @@ import NotefulContext from '../NotefulContext'
 import Button from '../Button/Button';
 import { findNote, findFolder } from '../notes-helpers';
 import './NotePageNav.css';
+import PropTypes from 'prop-types';
 
 class NotePageNav extends Component {
   static defaultProps = {
@@ -43,3 +44,11 @@ class NotePageNav extends Component {
 }
 
 export default NotePageNav;
+
+NotePageNav.propTypes = {
+  context: PropTypes.shape({
+    folders:PropTypes.arrayOf({}),
+    notes:PropTypes.arrayOf({}),
+    deleteNote: PropTypes.func
+  })
+}

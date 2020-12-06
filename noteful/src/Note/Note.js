@@ -2,6 +2,7 @@ import { React, Component } from 'react';
 import { Link } from 'react-router-dom';
 import NotefulContext from '../NotefulContext';
 import './Note.css';
+import PropTypes from 'prop-types';
 
 class Note extends Component {
     static defaultProps ={
@@ -58,3 +59,11 @@ class Note extends Component {
 }
 
 export default Note;
+
+Note.propTypes = {
+    context: PropTypes.shape({
+      folders:PropTypes.arrayOf({}),
+      notes:PropTypes.arrayOf({}),
+      deleteNote: PropTypes.func
+    })
+ }

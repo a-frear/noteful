@@ -1,8 +1,9 @@
 import { React, Component } from 'react';
-import NotefulContext from '../NotefulContext'
-import { getNotesForFolder } from '../notes-helpers'
-import Note from '../Note/Note'
-import './NoteListMain.css'
+import NotefulContext from '../NotefulContext';
+import { getNotesForFolder } from '../notes-helpers';
+import Note from '../Note/Note';
+import './NoteListMain.css';
+import PropTypes from 'prop-types';
 
 class NoteListMain extends Component {
     static defaultProps = {
@@ -35,3 +36,11 @@ class NoteListMain extends Component {
 }
 
 export default NoteListMain;
+
+NoteListMain.propTypes = {
+  context: PropTypes.shape({
+    folders:PropTypes.arrayOf({}),
+    notes:PropTypes.arrayOf({}),
+    deleteNote: PropTypes.func
+  })
+}

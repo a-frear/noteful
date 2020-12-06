@@ -15,10 +15,11 @@
     text-decoration: none;
   }
 
-  .NoteListNav__folder-link:hover {
+  .add_link button:hover, .NoteListNav__folder-link:hover {
     color: white;
     cursor: pointer;
   }
+  
   .NoteListNav__folder-link.active {
     background-color: #FF8C42;
   }
@@ -28,5 +29,24 @@
     display: block;
     float: right;
     font-size: 16px;
+  }
+
+  .add_link {
+    display: block;
+    font-size: 30px;
+    margin: 0 0 8px auto;
+    max-width: 180px;
+    padding: 0px 16px;;
+    text-decoration: none;
+    background-color: #52D1DC;
+  }
+
+  .add_link button {
+    border: none;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+    background-color: #52D1DC;
+  
   }
   

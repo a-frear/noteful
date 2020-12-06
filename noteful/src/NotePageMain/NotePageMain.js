@@ -2,6 +2,7 @@ import React from 'react';
 import Note from '../Note/Note';
 import NotefulContext from '../NotefulContext';
 import { findNote } from '../notes-helpers';
+import PropTypes from 'prop-types';
 import './NotePageMain.css';
 
 export default class NotePageMain extends React.Component {
@@ -36,4 +37,12 @@ export default class NotePageMain extends React.Component {
       </section>
     )
   }
+}
+
+NotePageMain.propTypes = {
+  context: PropTypes.shape({
+    folders:PropTypes.arrayOf({}),
+    notes:PropTypes.arrayOf({}),
+    deleteNote: PropTypes.func
+  })
 }
