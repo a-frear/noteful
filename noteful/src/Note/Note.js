@@ -61,9 +61,4 @@ class Note extends Component {
 export default Note;
 
 Note.propTypes = {
-    context: PropTypes.shape({
-      folders:PropTypes.arrayOf({}),
-      notes:PropTypes.arrayOf({}),
-      deleteNote: PropTypes.func
-    })
  }

@@ -40,9 +40,4 @@ export default class NotePageMain extends React.Component {
 }
 
 NotePageMain.propTypes = {
-  context: PropTypes.shape({
-    folders:PropTypes.arrayOf({}),
-    notes:PropTypes.arrayOf({}),
-    deleteNote: PropTypes.func
-  })
 }

@@ -113,10 +113,5 @@ export default class AddNote extends Component {
 };
 
 AddNote.propTypes = {
-  newNote: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    folder: PropTypes.string.isRequired,
-    folderId: PropTypes.string.isRequired,
-  })
+  //
 };

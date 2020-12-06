@@ -38,9 +38,5 @@ class NoteListMain extends Component {
 export default NoteListMain;
 
 NoteListMain.propTypes = {
-  context: PropTypes.shape({
-    folders:PropTypes.arrayOf({}),
-    notes:PropTypes.arrayOf({}),
-    deleteNote: PropTypes.func
-  })
+
 }

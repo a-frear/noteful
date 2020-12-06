@@ -46,8 +46,4 @@ class NotePageNav extends Component {
 export default NotePageNav;
 
 NotePageNav.propTypes = {
-  context: PropTypes.shape({
-    folders:PropTypes.arrayOf({}),
-    notes:PropTypes.arrayOf({}),
-  })
 }
