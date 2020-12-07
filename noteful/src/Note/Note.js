@@ -60,6 +60,13 @@ class Note extends Component {
 
 export default Note;
 
+Note.defaultProps={
+    id: '',
+    name: '',
+    modified: '',
+    onDeleteNote: () => {},
+}
+
 Note.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

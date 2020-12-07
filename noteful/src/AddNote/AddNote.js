@@ -65,7 +65,9 @@ export default class AddNote extends Component {
     const select = this.state.folderId;
     console.log(select);
     if ( select=== '') {
-      return "Please select a folder"
+      return 'Please select a folder'
+    } if ( !select=== '') {
+      return ''
     }
   } 
 
@@ -93,6 +95,7 @@ export default class AddNote extends Component {
               Folder
             </label>
             <select id='note-folder-select' name='note-folder-id' onChange={(e) => this.updateFolderId(e.target.value)} >
+              <option value=''> </option>
               {folders.map(folder =>
                 <option key={folder.id} value={folder.id}>
                   {folder.name}
