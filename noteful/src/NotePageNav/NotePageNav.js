@@ -27,7 +27,6 @@ class NotePageNav extends Component {
       <div className='NotePageNav'>
           <Button 
           tag='button'
-          role='link'
           onClick={this.handleClickCancel}
           className='NotePageNav__back-button'
         >Back 
@@ -46,5 +45,10 @@ class NotePageNav extends Component {
 export default NotePageNav;
 
 NotePageNav.propTypes = {
-  //this.props.history
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }),
+  match: PropTypes.shape({
+    params: PropTypes.object.isRequired,
+  })
 };

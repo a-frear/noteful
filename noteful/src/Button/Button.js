@@ -21,9 +21,8 @@ Button.defaultProps ={
 
 Button.propTypes = {
   tag: PropTypes.string,
-  role: PropTypes.string,
+  className: PropTypes.string,
   onClick: PropTypes.func,
-  className: PropTypes.string
 };
 
 

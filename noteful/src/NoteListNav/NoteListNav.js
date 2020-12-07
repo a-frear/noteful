@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import NotefulContext from '../NotefulContext'
 import './NoteListNav.css';
 import { countNotesForFolder } from '../notes-helpers';
-import PropTypes from 'prop-types';
 
 class NotesListNav extends Component {
   static contextType = NotefulContext;
