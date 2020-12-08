@@ -23,6 +23,7 @@ Button.propTypes = {
   tag: PropTypes.string,
   className: PropTypes.string,
   onClick: PropTypes.func,
+  children: PropTypes.node,
 };
 
 

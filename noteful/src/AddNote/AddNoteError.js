@@ -1,4 +1,5 @@
 import { React, Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddNoteError extends Component {
     constructor(props) {
@@ -23,3 +24,7 @@ class AddNoteError extends Component {
 }
 
 export default AddNoteError;
+
+AddNoteError.propTypes = {
+  children: PropTypes.node,
+}

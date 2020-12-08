@@ -1,4 +1,5 @@
 import { React, Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddFolderError extends Component {
     constructor(props) {
@@ -15,7 +16,7 @@ class AddFolderError extends Component {
     render() {
         if (this.state.hasError) {      
           return (
-            <h2>Unable to add note at the moment.</h2>
+            <h2>Unable to add folder at the moment.</h2>
           );
         }
         return this.props.children;
@@ -23,3 +24,7 @@ class AddFolderError extends Component {
 }
 
 export default AddFolderError;
+
+AddFolderError.propTypes = {
+  children: PropTypes.node,
+}

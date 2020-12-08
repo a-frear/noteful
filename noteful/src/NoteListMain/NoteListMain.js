@@ -38,5 +38,7 @@ class NoteListMain extends Component {
 export default NoteListMain;
 
 NoteListMain.propTypes = {
-  //this.props.match.params
+  match: PropTypes.shape({
+    params: PropTypes.object.isRequired,
+  }),
 }
