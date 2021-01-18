@@ -27,16 +27,12 @@ class NotesListNav extends Component {
         <NavLink 
           className='add_link'
           to={`/add-folder`}>
-            <button>
               Add Folder
-            </button>
         </NavLink>
         <NavLink
           className='add_link'
           to={`/add-note`}>
-          <button>
             Add Note
-          </button>
         </NavLink>
       </div> 
       )

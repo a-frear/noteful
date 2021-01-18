@@ -3,11 +3,12 @@ import './AddNote.css';
 import NotefulContext from '../NotefulContext';
 import ValidationError from '../ValidationError/ValidationError';
 import PropTypes from 'prop-types';
+import config from '../config';
 
 export default class AddNote extends Component {
   state = {
     value: '',
-    folderId:'',
+    folder_id:'',
     content: ''
   }
 
@@ -18,10 +19,10 @@ export default class AddNote extends Component {
     const newNote = {
       name: e.target['note-name'].value,
       content: e.target['note-content'].value,
-      folderId: e.target['note-folder-id'].value,
+      folder_id: e.target['note-folder-id'].value,
       modified: new Date(),
     }
-    fetch(`http://localhost:9090/notes`, {
+    fetch(config.API_ENDPOINT_notes, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -35,7 +36,7 @@ export default class AddNote extends Component {
       })
       .then(note => {
         this.context.addNote(note)
-        this.props.history.push(`/folder/${note.folderId}`)
+        this.props.history.push(`/folder/${note.folder_id}`)
       })
       .catch(error => {
         console.error({ error })
@@ -50,7 +51,7 @@ export default class AddNote extends Component {
 
    updateFolderId = (id) => {
     this.setState({
-      folderId: id,
+      folder_id: id,
       touched: true
       })
   }
@@ -62,7 +63,7 @@ export default class AddNote extends Component {
   }
 
   validateSelect() {
-    const select = this.state.folderId;
+    const select = this.state.folder_id;
     console.log(select);
     if ( select=== '') {
       return 'Please select a folder'

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import NotefulContext from '../NotefulContext';
 import './Note.css';
 import PropTypes from 'prop-types';
+import config from '../config';
 
 class Note extends Component {
     static defaultProps ={
@@ -14,7 +15,7 @@ class Note extends Component {
     e.preventDefault()
     const noteId = this.props.id
 
-    fetch(`http://localhost:9090/notes/${noteId}`, {
+    fetch(config.API_ENDPOINT_notes + `/${noteId}`, {
         method: 'DELETE',
         headers: {
         'content-type': 'application/json'
@@ -37,6 +38,8 @@ class Note extends Component {
 
     render() {
         const { name, id, modified } = this.props;
+        const splitDate = modified.split("");
+        const spliceDate = splitDate.splice(0, 10);
         return (
             <div className='Note'>
                 <h2 className='Note__title'>
@@ -44,7 +47,7 @@ class Note extends Component {
                     {name}
                     </Link>
                 </h2>
-                <h3>{modified}</h3>
+                <h3>{spliceDate}</h3>
                 <button
                     className='Note__delete'
                     type='button'
@@ -68,7 +71,6 @@ Note.defaultProps={
 }
 
 Note.propTypes = {
-    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     modified: PropTypes.string.isRequired,
     onDeleteNote: PropTypes.func.isRequired,

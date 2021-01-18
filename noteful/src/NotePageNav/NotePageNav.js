@@ -22,7 +22,7 @@ class NotePageNav extends Component {
     const { notes, folders } = this.context;
     const {noteId} = this.props.match.params;
     const note = findNote(notes, noteId) || {};
-    const folder = findFolder(folders, note.folderId);
+    const folder = findFolder(folders, note.folder_id);
     return (
       <div className='NotePageNav'>
           <Button 

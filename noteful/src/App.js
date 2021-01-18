@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 import NotefulContext from './NotefulContext'
 import NoteListNav from './NoteListNav/NoteListNav';
 import NoteListMain from './NoteListMain/NoteListMain';
@@ -10,6 +10,7 @@ import AddNote from './AddNote/AddNote';
 import AddNoteError from './AddNote/AddNoteError';
 import AddFolderError from './AddFolder/AddFolderError';
 import './App.css';
+import config from './config';
 
 class App extends Component { 
   state = {
@@ -32,23 +33,8 @@ class App extends Component {
     })
   }
 
-  componentDidMount(){
-    fetch('http://localhost:9090/folders', {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-      }
-    })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(res.status)
-        }
-        return res.json()
-      })
-      .then(this.setFolders)
-      .catch(error => this.setState({ error }))
-
-      fetch('http://localhost:9090/notes', {
+  componentDidMount() {
+    fetch(config.API_ENDPOINT_folders, {
         method: 'GET',
         headers: {
           'content-type': 'application/json',
@@ -60,9 +46,24 @@ class App extends Component {
           }
           return res.json()
         })
-        .then(this.setNotes)
+        .then(this.setFolders)
         .catch(error => this.setState({ error }))
-    }
+  
+        fetch(config.API_ENDPOINT_notes, {
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+          }
+        })
+          .then(res => {
+            if (!res.ok) {
+              throw new Error(res.status)
+            }
+            return res.json()
+          })
+          .then(this.setNotes)
+          .catch(error => this.setState({ error }))
+}
 
     handleDeleteNote = noteId => {
       this.setState({
@@ -164,6 +165,7 @@ class App extends Component {
       deleteNote: this.handleDeleteNote,
     }
     return (
+      <BrowserRouter>
       <NotefulContext.Provider value={contextValue}>
         <div className="App">
           {/* Call the renderNavRoutes() function*/}
@@ -177,6 +179,7 @@ class App extends Component {
           <main className="App__main">{this.renderMainRoutes()}</main>
         </div>
       </NotefulContext.Provider>
+      </BrowserRouter>
     );
   }
 }

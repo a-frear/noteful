@@ -15,10 +15,10 @@ If there is a folder Id, filter through the notes and return only the note with 
 export const getNotesForFolder = (notes=[], folderId) => (
   (!folderId)
     ? notes
-    : notes.filter(note => note.folderId === folderId)
+    : notes.filter(note => note.folder_id === folderId)
 )
 
 /*Take the array of notes and the folderId
 Filter through the notes and return the length of the notes whose folderId matches the folderID*/
 export const countNotesForFolder = (notes=[], folderId) =>
-  notes.filter(note => note.folderId === folderId).length
+  notes.filter(note => note.folder_id === folderId).length
