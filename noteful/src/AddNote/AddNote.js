@@ -8,7 +8,7 @@ import config from '../config';
 export default class AddNote extends Component {
   state = {
     value: '',
-    folder_id:'',
+    folder_id: '',
     content: ''
   }
 
@@ -18,9 +18,9 @@ export default class AddNote extends Component {
     e.preventDefault()
     const newNote = {
       name: e.target['note-name'].value,
-      content: e.target['note-content'].value,
-      folder_id: e.target['note-folder-id'].value,
       modified: new Date(),
+      folder_id: e.target['note-folder-id'].value,
+      content: e.target['note-content'].value,
     }
     fetch(config.API_ENDPOINT_notes, {
       method: 'POST',
@@ -36,7 +36,7 @@ export default class AddNote extends Component {
       })
       .then(note => {
         this.context.addNote(note)
-        this.props.history.push(`/folder/${note.folder_id}`)
+        this.props.history.push(`/`)
       })
       .catch(error => {
         console.error({ error })
@@ -49,11 +49,11 @@ export default class AddNote extends Component {
        })
    }
 
-   updateFolderId = (id) => {
+   updateFolderId = (folder_id) => {
     this.setState({
-      folder_id: id,
-      touched: true
+      folder_id
       })
+    
   }
   
   updateContent = (content) => {
@@ -64,7 +64,6 @@ export default class AddNote extends Component {
 
   validateSelect() {
     const select = this.state.folder_id;
-    console.log(select);
     if ( select=== '') {
       return 'Please select a folder'
     } if ( !select=== '') {
@@ -74,6 +73,7 @@ export default class AddNote extends Component {
 
   render() {
     const { folders=[] } = this.context
+    console.log(folders);
     const selectError = this.validateSelect();
     return (
       <section className='AddNote'>
@@ -95,7 +95,7 @@ export default class AddNote extends Component {
             <label htmlFor='note-folder-select'>
               Folder
             </label>
-            <select id='note-folder-select' name='note-folder-id' onChange={(e) => this.updateFolderId(e.target.value)} >
+            <select id='note-folder-select' name='note-folder-id' onChange={(e) => this.updateFolderId(e.target.value)} required >
               <option value=''> </option>
               {folders.map(folder =>
                 <option key={folder.id} value={folder.id}>
