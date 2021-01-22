@@ -14,9 +14,9 @@ class NoteListMain extends Component {
     static contextType = NotefulContext
 
     render() {
-        const { folderId } = this.props.match.params
+        const { folder_id } = this.props.match.params
         const { notes=[] } = this.context
-        const notesForFolder = getNotesForFolder(notes, folderId)
+        const notesForFolder = getNotesForFolder(notes, folder_id)
       
         return (
           <section className='NoteListMain'>

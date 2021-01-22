@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, BrowserRouter } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import NotefulContext from './NotefulContext'
 import NoteListNav from './NoteListNav/NoteListNav';
 import NoteListMain from './NoteListMain/NoteListMain';
@@ -164,7 +164,6 @@ class App extends Component {
       addNote: this.handleAddNote,
       deleteNote: this.handleDeleteNote,
     }
-    console.log(this.state)
     return (
       <NotefulContext.Provider value={contextValue}>
         <div className="App">

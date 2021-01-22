@@ -19,7 +19,7 @@ export default class AddNote extends Component {
     const newNote = {
       name: e.target['note-name'].value,
       modified: new Date(),
-      folder_id: e.target['note-folder-id'].value,
+      folder_id: parseInt(e.target['note-folder-id'].value),
       content: e.target['note-content'].value,
     }
     fetch(config.API_ENDPOINT_notes, {
@@ -73,7 +73,6 @@ export default class AddNote extends Component {
 
   render() {
     const { folders=[] } = this.context
-    console.log(folders);
     const selectError = this.validateSelect();
     return (
       <section className='AddNote'>
